@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jokes · Ahmad</title>
+    <meta name="description" content="A random dad joke, fetched live from an API." />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js"></script>
+    <!-- "defer" = run after the HTML is parsed, so the elements below exist. -->
+    <script src="jokes.js" defer></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">Ahmad</a>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch colour theme"
+        >
+          Dark mode
+        </button>
+      </div>
+      <nav class="container site-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/jokes" aria-current="page">Jokes</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section>
+        <h1>Random joke</h1>
+
+        <!-- aria-live="polite": screen readers announce the new joke when it changes. -->
+        <div class="card joke-card">
+          <p id="joke" class="joke" aria-live="polite">Loading a joke…</p>
+        </div>
+
+        <button id="new-joke" class="button" type="button">Another one</button>
+
+        <p class="source">
+          Jokes from <a href="https://icanhazdadjoke.com/">icanhazdadjoke.com</a>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Visitors: <span id="visit-count">—</span></p>
+      </div>
+    </footer>
+  </body>
+</html>

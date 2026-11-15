@@ -2,7 +2,7 @@
 
 Progress tracker for [PLAN.md](PLAN.md). Ticked = done and confirmed working.
 
-**Current:** Step 1a, Part C. Launching the EC2 server.
+**Current:** Step 1a, Check 1a. Reboot test + redeploy drill.
 
 ---
 
@@ -23,22 +23,22 @@ Progress tracker for [PLAN.md](PLAN.md). Ticked = done and confirmed working.
 - [x] Pushed to `main`
 
 ### Part C: Launch EC2 (AWS console)
-- [ ] AWS Budget alert set
-- [ ] Ubuntu 24.04 instance launched (Free Tier size)
-- [ ] Key pair saved in `~/.ssh/`, `chmod 400` done
-- [ ] Security group: 22 from my IP, 80 from anywhere
-- [ ] Elastic IP attached
+- [x] AWS Budget alert set
+- [x] Ubuntu 26.04 LTS instance launched (Free Tier size)
+- [x] Key pair saved in `~/.ssh/`, `chmod 400` done
+- [x] Security group: 22 from my IP, 80 from anywhere
+- [x] Elastic IP attached
 
 ### Part D: Server setup + Nginx
-- [ ] SSH login works
-- [ ] Packages updated
-- [ ] Nginx + git installed, welcome page visible
-- [ ] Repo cloned to `/var/www/cloud`
-- [ ] Site config enabled, default removed, `nginx -t` passes, reloaded
+- [x] SSH login works
+- [x] Packages updated
+- [x] Nginx + git installed, welcome page visible
+- [x] Repo cloned to `/var/www/cloud`
+- [x] Site config enabled, default removed, `nginx -t` passes, reloaded
 
 ### Check 1a
-- [ ] Homepage loads at `http://<elastic-ip>/`
-- [ ] Survives `sudo reboot`
+- [x] Homepage loads at `http://<elastic-ip>/`
+- [x] Survives `sudo reboot`
 - [ ] Redeploy drill done (push, `git pull`, refresh)
 
 ---

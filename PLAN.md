@@ -58,7 +58,7 @@ is also what GitHub Actions uses in step 5.
 
 ### Part C: Launch the EC2 server (AWS console)
 1. **Billing safety first**: an AWS Budget alert (e.g. $5).
-2. Launch instance: **Ubuntu Server 24.04 LTS**, Free Tier eligible size (`t3.micro`/`t2.micro`).
+2. Launch instance: **Ubuntu Server 26.04 LTS**, Free Tier eligible size (`t3.micro`/`t2.micro`).
 3. **Key pair**: create `.pem`, move it to `~/.ssh/`, lock its permissions with
    `chmod 400 ~/.ssh/<key>.pem` (ssh refuses keys other users can read).
 4. **Security group** (AWS's firewall): SSH 22 from *My IP* only; HTTP 80 from anywhere

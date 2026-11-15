@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About · Ahmad</title>
+    <meta name="description" content="About Ahmad: web developer learning AWS, Linux and DevOps." />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">Ahmad</a>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch colour theme"
+        >
+          Dark mode
+        </button>
+      </div>
+      <nav class="container site-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/about" aria-current="page">About</a>
+        <a href="/jokes">Jokes</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section>
+        <h1>About me</h1>
+        <p>
+          Hi, I'm Ahmad. I'm a web developer who builds apps with React, Next.js
+          and Express. I've shipped projects on Render, Vercel and Netlify, and
+          now I'm learning to run my own infrastructure.
+        </p>
+        <p>
+          This site is my first self-hosted app. I'm building it step by step,
+          from a hand-configured EC2 server to a fully automated deploy
+          pipeline.
+        </p>
+      </section>
+
+      <section aria-labelledby="skills-heading">
+        <h2 id="skills-heading">What I work with</h2>
+        <ul class="tag-list">
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>Node.js</li>
+          <li>Express</li>
+          <li>Postgres</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="learning-heading">
+        <h2 id="learning-heading">What I'm learning</h2>
+        <ul class="tag-list">
+          <li>AWS EC2</li>
+          <li>Linux</li>
+          <li>Nginx</li>
+          <li>Docker</li>
+          <li>CI/CD</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Visitors: <span id="visit-count">—</span></p>
+      </div>
+    </footer>
+  </body>
+</html>

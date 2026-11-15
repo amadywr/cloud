@@ -10,6 +10,8 @@
       content="Personal homepage of Ahmad, a web developer learning to self-host on AWS."
     />
 
+    <!-- Relative paths ("styles.css", not "/styles.css") so the page works both
+         in VS Code Live Server and on the real server. -->
     <link rel="stylesheet" href="styles.css" />
 
     <!-- Loaded in <head> (no "defer") on purpose: it applies the saved theme
@@ -18,12 +20,11 @@
   </head>
 
   <body>
+    <!-- Same header on every page. aria-current="page" marks where you are
+         (styled in styles.css, and read out by screen readers). -->
     <header class="site-header">
       <div class="container header-row">
-        <div>
-          <h1>Ahmad</h1>
-          <p class="tagline">Learning to self-host my own apps on AWS.</p>
-        </div>
+        <a class="brand" href="/">Ahmad</a>
         <button
           id="theme-toggle"
           class="theme-toggle"
@@ -33,21 +34,21 @@
           Dark mode
         </button>
       </div>
+      <nav class="container site-nav" aria-label="Main">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/about">About</a>
+        <a href="/jokes">Jokes</a>
+        <a href="/contact">Contact</a>
+      </nav>
     </header>
 
     <main class="container">
-      <section aria-labelledby="about-heading">
-        <h2 id="about-heading">About</h2>
+      <section class="intro">
+        <h1>Hi, I'm Ahmad.</h1>
+        <p class="tagline">Learning to self-host my own apps on AWS.</p>
         <p>
-          Hi, I'm Ahmad. I'm a web developer who builds apps with React, Next.js
-          and Express. I've shipped projects on Render, Vercel and Netlify, and
-          now I'm learning to run my own infrastructure: AWS, Linux, Nginx,
-          Docker and CI/CD.
-        </p>
-        <p>
-          This site is my first self-hosted app. I'm building it step by step,
-          from a hand-configured EC2 server to a fully automated deploy
-          pipeline.
+          This site is my first self-hosted app, running on my own EC2 server
+          behind Nginx. <a href="/about">More about me</a>.
         </p>
       </section>
 
@@ -77,18 +78,11 @@
           </li>
         </ul>
       </section>
-
-      <section aria-labelledby="links-heading">
-        <h2 id="links-heading">Links</h2>
-        <ul class="link-list">
-          <li><a href="https://github.com/amadywr">GitHub</a></li>
-        </ul>
-      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <!-- Filled in by the Express API in Part A2. Shows a dash until then. -->
+        <!-- Filled in by the Express API in Step 1b. Shows a dash until then. -->
         <p>Visitors: <span id="visit-count">—</span></p>
       </div>
     </footer>

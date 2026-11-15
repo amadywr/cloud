@@ -68,7 +68,41 @@ section {
   flex-wrap: wrap; /* button drops below the name on narrow screens */
 }
 
-.site-header h1 {
+/* Site name in the top-left, links back to the homepage. */
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ---------- Navigation ---------- */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap; /* links wrap onto a second line on narrow phones */
+  gap: 0.25rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+/* The link for the page you're on (set in each HTML file). */
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Page intro ---------- */
+.intro h1 {
   margin: 0;
   font-size: 2rem;
 }
@@ -90,6 +124,27 @@ section {
 
 .theme-toggle:hover {
   border-color: var(--accent);
+}
+
+/* ---------- Buttons ---------- */
+.button {
+  font: inherit;
+  padding: 0.5rem 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+/* Greyed out while a joke is loading (the JS sets "disabled"). */
+.button:disabled {
+  opacity: 0.5;
+  cursor: wait;
 }
 
 /* ---------- Projects ---------- */
@@ -116,13 +171,39 @@ section {
   color: var(--muted);
 }
 
-/* ---------- Links ---------- */
-.link-list {
+/* ---------- Tags (About page) ---------- */
+.tag-list {
   list-style: none;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 0.5rem;
+}
+
+.tag-list li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Jokes page ---------- */
+.joke-card {
+  margin: 1rem 0;
+  min-height: 6rem; /* keeps the button from jumping when joke length changes */
+  display: flex;
+  align-items: center;
+}
+
+.card p.joke {
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.source {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 /* ---------- Footer ---------- */
