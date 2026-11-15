@@ -2,7 +2,7 @@
 
 Progress tracker for [PLAN.md](PLAN.md). Ticked = done and confirmed working.
 
-**Current:** Step 1a, Part B. Pushing the code to GitHub.
+**Current:** Step 1a, Part C. Launching the EC2 server.
 
 ---
 
@@ -18,14 +18,14 @@ Progress tracker for [PLAN.md](PLAN.md). Ticked = done and confirmed working.
 - [x] `deploy/nginx.conf` (static only) and `.gitignore`
 
 ### Part B: Code on GitHub
-- [ ] `git init` + first commit
-- [ ] Public repo `website-vanilla` created on GitHub
-- [ ] Pushed to `main`
+- [x] `git init` + first commit
+- [x] Public repo `cloud` created on GitHub
+- [x] Pushed to `main`
 
 ### Part C: Launch EC2 (AWS console)
 - [ ] AWS Budget alert set
 - [ ] Ubuntu 24.04 instance launched (Free Tier size)
-- [ ] Key pair saved in `~\.ssh\`, permissions locked
+- [ ] Key pair saved in `~/.ssh/`, `chmod 400` done
 - [ ] Security group: 22 from my IP, 80 from anywhere
 - [ ] Elastic IP attached
 
@@ -33,7 +33,7 @@ Progress tracker for [PLAN.md](PLAN.md). Ticked = done and confirmed working.
 - [ ] SSH login works
 - [ ] Packages updated
 - [ ] Nginx + git installed, welcome page visible
-- [ ] Repo cloned to `/var/www/website-vanilla`
+- [ ] Repo cloned to `/var/www/cloud`
 - [ ] Site config enabled, default removed, `nginx -t` passes, reloaded
 
 ### Check 1a

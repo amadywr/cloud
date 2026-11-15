@@ -1,6 +1,6 @@
 # Self-Hosting Plan
 
-`C:\Users\k_han\code\cloud` holds every app I self-host. The first is **website-vanilla**,
+`~/Desktop/cloud` (on my MacBook) holds every app I self-host. The first is **website-vanilla**,
 a personal homepage in plain HTML/CSS/JS. A tiny Express API is added after it's live.
 
 Progress is tracked in [CHECKLIST.md](CHECKLIST.md).
@@ -51,26 +51,26 @@ website-vanilla/
 ### Part B: Put the code on GitHub
 The server downloads the code with `git clone`, so it has to be on GitHub first. This repo
 is also what GitHub Actions uses in step 5.
-1. `git init`, first commit (in `website-vanilla/`).
-2. Create a **public** repo `website-vanilla` on github.com. Public means the server can
+1. `git init`, first commit (repo root is `cloud/`; each app lives in its own subfolder).
+2. Create a **public** repo `cloud` on github.com. Public means the server can
    clone it without a login. Private repos and deploy keys come in step 3/5.
 3. Add the remote and `git push -u origin main`.
 
 ### Part C: Launch the EC2 server (AWS console)
 1. **Billing safety first**: an AWS Budget alert (e.g. $5).
 2. Launch instance: **Ubuntu Server 24.04 LTS**, Free Tier eligible size (`t3.micro`/`t2.micro`).
-3. **Key pair**: create `.pem`, save to `C:\Users\k_han\.ssh\`, lock its permissions with
-   `icacls` (Windows equivalent of `chmod 400`).
+3. **Key pair**: create `.pem`, move it to `~/.ssh/`, lock its permissions with
+   `chmod 400 ~/.ssh/<key>.pem` (ssh refuses keys other users can read).
 4. **Security group** (AWS's firewall): SSH 22 from *My IP* only; HTTP 80 from anywhere
    (443 added in step 2).
 5. Allocate an **Elastic IP** and attach it, so the address survives restarts.
 
 ### Part D: Server setup + Nginx serves the site
-From PowerShell: `ssh -i $HOME\.ssh\<key>.pem ubuntu@<elastic-ip>`
+From the Mac Terminal: `ssh -i ~/.ssh/<key>.pem ubuntu@<elastic-ip>`
 1. `sudo apt update && sudo apt upgrade -y`
 2. Install **Nginx** and **git**. Visit `http://<ip>` and you should see the Nginx welcome page.
-3. Clone the repo into `/var/www/website-vanilla` (owned by `ubuntu`, not root).
-4. Copy `deploy/nginx.conf` to `/etc/nginx/sites-available/website-vanilla`, symlink into
+3. Clone the repo into `/var/www/cloud` (owned by `ubuntu`, not root).
+4. Copy `website-vanilla/deploy/nginx.conf` to `/etc/nginx/sites-available/website-vanilla`, symlink into
    `sites-enabled`, remove `default`.
 5. `sudo nginx -t` (syntax check), then `sudo systemctl reload nginx`.
 
