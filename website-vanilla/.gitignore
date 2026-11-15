@@ -1,0 +1,9 @@
+# Dependencies (reinstalled with npm, never committed)
+node_modules/
+
+# Secrets and local settings
+.env
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db

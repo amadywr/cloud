@@ -1,0 +1,79 @@
+# Self-Hosting Checklist
+
+Progress tracker for [PLAN.md](PLAN.md). Ticked = done and confirmed working.
+
+**Current:** Step 1a, Part B. Pushing the code to GitHub.
+
+---
+
+## Step 1a: Static site live on EC2
+
+### Part A: Static website (`website-vanilla/public/`)
+- [x] `index.html`: header, about, projects, links, footer
+- [x] `styles.css`: responsive layout, light/dark themes with CSS variables
+- [x] `app.js`: theme toggle saved in localStorage
+- [x] Placeholders filled (name: Ahmad)
+- [x] Checked in browser: renders, toggle works, theme kept after refresh, OK on narrow window
+- [x] Real links in place
+- [x] `deploy/nginx.conf` (static only) and `.gitignore`
+
+### Part B: Code on GitHub
+- [ ] `git init` + first commit
+- [ ] Public repo `website-vanilla` created on GitHub
+- [ ] Pushed to `main`
+
+### Part C: Launch EC2 (AWS console)
+- [ ] AWS Budget alert set
+- [ ] Ubuntu 24.04 instance launched (Free Tier size)
+- [ ] Key pair saved in `~\.ssh\`, permissions locked
+- [ ] Security group: 22 from my IP, 80 from anywhere
+- [ ] Elastic IP attached
+
+### Part D: Server setup + Nginx
+- [ ] SSH login works
+- [ ] Packages updated
+- [ ] Nginx + git installed, welcome page visible
+- [ ] Repo cloned to `/var/www/website-vanilla`
+- [ ] Site config enabled, default removed, `nginx -t` passes, reloaded
+
+### Check 1a
+- [ ] Homepage loads at `http://<elastic-ip>/`
+- [ ] Survives `sudo reboot`
+- [ ] Redeploy drill done (push, `git pull`, refresh)
+
+---
+
+## Step 1b: Add the Express backend
+
+### Part E: Express API (local)
+- [ ] `server/` with `/api/health`, `/api/visits`
+- [ ] `app.js` fetches visitor count
+- [ ] `README.md` runbook
+- [ ] Runs locally, count increments
+- [ ] Committed and pushed
+
+### Part F: Node + pm2 on server
+- [ ] Node.js LTS installed
+- [ ] pm2 installed, API running as `homepage-api`
+- [ ] `pm2 save` + `pm2 startup` done
+- [ ] `curl 127.0.0.1:3000/api/health` OK on server
+
+### Part G: Nginx reverse proxy
+- [ ] `location /api/` block added and reloaded
+
+### Check 1b
+- [ ] `/api/health` returns ok through Nginx
+- [ ] Visitor counter increments
+- [ ] API survives `sudo reboot`
+- [ ] Port 3000 not reachable from outside
+
+---
+
+## Later steps
+- [ ] Step 2: Domain + HTTPS (Certbot)
+- [ ] Step 3: Security hardening
+- [ ] Step 4: Docker + Docker Compose
+- [ ] Step 5: CI/CD with GitHub Actions
+- [ ] Step 6: Postgres + automated backups
+- [ ] Step 7: Logs and monitoring
+- [ ] Optional: Terraform

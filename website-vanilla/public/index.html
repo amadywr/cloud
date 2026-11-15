@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Page metadata: character set, mobile-friendly scaling, tab title -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmad</title>
+    <meta
+      name="description"
+      content="Personal homepage of Ahmad, a web developer learning to self-host on AWS."
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Loaded in <head> (no "defer") on purpose: it applies the saved theme
+         BEFORE the page is drawn, so you don't see a white flash in dark mode. -->
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <div>
+          <h1>Ahmad</h1>
+          <p class="tagline">Learning to self-host my own apps on AWS.</p>
+        </div>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch colour theme"
+        >
+          Dark mode
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section aria-labelledby="about-heading">
+        <h2 id="about-heading">About</h2>
+        <p>
+          Hi, I'm Ahmad. I'm a web developer who builds apps with React, Next.js
+          and Express. I've shipped projects on Render, Vercel and Netlify, and
+          now I'm learning to run my own infrastructure: AWS, Linux, Nginx,
+          Docker and CI/CD.
+        </p>
+        <p>
+          This site is my first self-hosted app. I'm building it step by step,
+          from a hand-configured EC2 server to a fully automated deploy
+          pipeline.
+        </p>
+      </section>
+
+      <section aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
+        <ul class="project-list">
+          <li class="card">
+            <h3>website-vanilla</h3>
+            <p>
+              This site. Plain HTML, CSS and JavaScript, hosted on my own EC2
+              server behind Nginx.
+            </p>
+          </li>
+          <li class="card">
+            <h3>Task Tracker</h3>
+            <p>
+              A React + Express to-do app with Postgres. Next in line to be
+              self-hosted.
+            </p>
+          </li>
+          <li class="card">
+            <h3>Weather Dashboard</h3>
+            <p>
+              A small vanilla JS app that shows a 5-day forecast from a public
+              weather API.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="links-heading">
+        <h2 id="links-heading">Links</h2>
+        <ul class="link-list">
+          <li><a href="https://github.com/amadywr">GitHub</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <!-- Filled in by the Express API in Part A2. Shows a dash until then. -->
+        <p>Visitors: <span id="visit-count">—</span></p>
+      </div>
+    </footer>
+  </body>
+</html>
